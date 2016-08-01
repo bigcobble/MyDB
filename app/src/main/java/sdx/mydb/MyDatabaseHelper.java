@@ -14,7 +14,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             + "id integer primary key autoincrement,"
             + "author text,"
             + "price real,"
-            + "pages integer"
+            + "pages integer,"
             + "name text)";
     public static  final  String Create_CATEGORY = "create table Category("
             + "id integer primary key autoincrement,"
@@ -38,5 +38,14 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists Book");
         db.execSQL("drop table if exists Category");
         onCreate(db);
+    }
+    /**
+     * 删除数据库
+     *
+     * @param context
+     * @return
+     */
+    public boolean deleteDatabase(Context context,String name) {
+        return context.deleteDatabase(name);
     }
 }
